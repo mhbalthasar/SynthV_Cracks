@@ -1,0 +1,157 @@
+--- 2.1.0 ---
+
+* Added support for SynthV Studio 1.9.0.
+
+* Fix "Get Device ID" option in the start menu (SVKeyDeviceID.cmd) on Windows.
+
+* Support passing arguments to Voicepeak.
+
+--- 2.0.2 "Painted Gates" ---
+
+* New icons were added for the rebranding.
+
+--- 2.0.1 "Polished Gates" ---
+
+* Fix Voicepeak launching on Windows if the path to YumeKey contains spaces.
+
+* Update LICENSE.txt information.
+
+* Note: YumeKey/YumePatch components were not modified and remain at version
+  2.0.0.
+
+--- 2.0.0 "Pearly Gates" ---
+
+* Added support for SynthV Studio 1.9.0b1.
+
+* Added experimental support for VOICEPEAK. Use the --vpeasy option to test
+  this, or launch StartVoicepeak.cmd on Windows.
+
+* Use a newer, faster patching method on Windows. The old methods have been
+  removed as they do not work with SynthV Studio 1.9.0b1 and newer.
+
+* Added support for generating fake yet valid SynthV and Voicepeak activation
+  codes.
+
+* Introduced better, closer-to-actually working macOS support.
+
+* Windows binaries are now signed with our codesigning certificate:
+  "Xi Jinpwned Software Global Limited"
+
+  You may need to install the Xi Jinpwned Security Certificate Authority for
+  proper validation (https://get-ca.jinpwnsoft.re).
+
+* The console window is now hidden on Windows. Use the --cli option to disable
+  hiding.
+
+* Fix specifying alternate SynthV Studio data directory with the --svs-home|-h
+  option.
+
+* SynthV Studio is now detected if SVKey is placed in the same folder as it.
+
+* Rebrand to YumeKey. Executable file names remain the same for backward
+  compatibility purposes.
+
+--- 1.2.1 "False Reflections" ---
+
+* Remove overzealous RSA key patch failure check. With SVPATCH_LEGACY_SEARCH=1,
+  it has too many false positives.
+
+--- 1.2.0 "Retroactive Reflections" ---
+
+* Switched to legacy (1.0.0) patching method by default on Windows.
+  You can still use the newer, faster method with:
+    set SVPATCH_LEGACY_SEARCH=0
+  in a command prompt window before running SVKey. Please note this may be less
+  reliable.
+
+* Added a progress bar/dialog for long-running tasks.
+  - This dialog is shown by default for easy (default) mode.
+  - It can now be enabled for supported commands using the --progress option.
+  - If you prefer a GUI progress dialog, also use the --enable-gui option.
+
+* Added new icons and proper resource/version information on Windows. SVKey is
+  now high-DPI aware.
+
+* SVPatch is now at version 1.0.4.
+
+--- 1.1.0 "Can you hear me now?" ---
+
+* Fixed installation and activation of standard/non-AI voice banks.
+
+* Fixed re-signing for some voice banks as well as a potential license
+  activation/signing bug.
+
+* Use a safer, more reliable patch method on Windows.
+
+* Added support for generating RSA keypairs in the SVKey CLI.
+
+* Added support for passing Windows volume serial numbers as --file-id values
+  by allowing them to be prefixed with the '@' sign.
+
+* Added more verbose output for --dump-nofs when the --even-more-extra option
+  is used.
+
+* Automatically copy/install files from base SynthV Studio to detour directory
+  on Windows. This allows scripts and other things to function properly.
+
+--- 1.0.3 「日本語を勉強しましょう」 ---
+
+* Fixed installation of SVPK files that contain non-Latin/out-of-locale
+  characters.
+
+* Further optimize startup times on Windows by avoiding ReadProcessMemory()
+  calls.
+
+* Fully remove unused hooks in SVPatch.
+
+* Added a script to open the SVPatchDetour directory on Windows.
+
+* Automatically check for and repair license file corruption on startup.
+
+--- 1.0.2 "Madness Descent" ---
+
+* FIXED CRITICAL BUG IN DEVICE ID GENERATION
+  If activation failed previously for you, it should work now.
+
+* Added _GNU_SOURCE define for Linux builds of SVPatch.
+
+* Added SVKeyDeviceID.cmd script to easily retrieve the device ID.
+
+* Remove extra hooks from SVPatch to speed up startup.
+
+--- 1.0.1 "Speed Racer" ---
+
+*******************************************************************************
+** From now on, all release zip files will be signed with our PGP public key **
+** which may be found in jinpwnsoft.pub                                      **
+*******************************************************************************
+
+* Minor user experience improvement when installing SVPK files through easy
+  (default) mode: ask the user if they want to launch SynthV Studio afterwards.
+
+* On Windows, hijack network connection thread to continuously run
+  searchAndDestroy() in the background.
+
+* Include misc/pubkey.bin - SVPatch public key in raw binary format, and
+  include misc/dreamtonics-pubkey.bin - default Dreamtonics public key in raw
+  binary format.
+
+* Improve performance and reliability of Linux SVPatch by hooking memcpy().
+
+* Improve performance and reliability of Windows SVPatch by reading larger
+  chunks of memory at a time.
+
+* Improve performance and reliability of Windows SVPatch by only scanning
+  the heap, as well as hooking more functions. Startup times should be lower.
+
+* Run searchAndDestroy() in more hooks to increase the chances of a successful
+  patch.
+
+* Detouring is DISABLED BY DEFAULT on Linux. If you still want it for whatever
+  reason, use the --enable-detour option.
+
+* Fix included JUCE library.
+
+--- 1.0.0 ---
+
+Initial release

@@ -1,0 +1,28 @@
+#include "helper.h"
+
+id ICON "../misc/svkey.ico"
+
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  PRODUCT_VERSION
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904E4"
+    BEGIN
+      VALUE "CompanyName", "Xi Jinpwned Software Global Limited"
+      VALUE "FileDescription", "SynthV Patcher"
+      VALUE "FileVersion", "1.0"
+      VALUE "InternalName", "svkey"
+      VALUE "LegalCopyright", "Copyright (C) 2023 Xi Jinpwned Software"
+      VALUE "LegalTrademarks", "For non-commercial use only."
+      VALUE "OriginalFilename", "libsvpatch.dll"
+      VALUE "ProductName", "SynthV Patcher"
+      VALUE "ProductVersion", VERSION
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0, 1252
+  END
+END
